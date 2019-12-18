@@ -4,8 +4,18 @@
   "private": true,
   "scripts": {
     "android": "react-native run-android",
+    "android:shake": "adb shell input keyevent 82",
+    "android:log": "adb logcat '*:S' ReactNative:V ReactNativeJS:V",
+    "android:apk": "cd android && ./gradlew assembleRelease",
+    "android:release": "react-native run-android --variant=release",
     "ios": "react-native run-ios",
+    "ios:release": "react-native run-ios --configuration Release",
+    "ios:devices": "xcrun simctl list devices",
+    "ios:iphone5": "react-native run-ios  --simulator='iPhone 5s'",
+    "ios:iphone7": "react-native run-ios  --simulator='iPhone 7'",
+    "ios:reset": "rm -rf ios/build/ModuleCache",
     "start": "react-native start",
+    "start:reset": "react-native  start --reset-cache",
     "test": "jest",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
   },
