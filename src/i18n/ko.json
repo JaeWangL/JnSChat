@@ -2,5 +2,13 @@
   "dialog": {
     "ok": "확인",
     "cancel": "취소"
+  },
+  "loginScreen": {
+    "subtitle": "로그인 후 이용해 주세요",
+    "email": "이메일",
+    "password": "비밀번호",
+    "forgotPassword": "비밀번호를 잊으셨나요?",
+    "login": "로그인",
+    "register": "아직 계정이 없으신가요? 회원가입"
   }
 }

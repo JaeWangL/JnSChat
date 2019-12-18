@@ -1,8 +1,8 @@
 import React from 'react';
-import { SafeAreaView } from 'react-navigation';
 import {
     withStyles,
     Divider,
+    Layout,
     ThemedComponentProps,
     ThemeType,
     TopNavigation,
@@ -16,16 +16,16 @@ const RoomsComponent = (props: RoomsProps): React.ReactElement => {
     const { themedStyle } = props;
 
     return (
-        <SafeAreaView style={themedStyle.container}>
-            <TopNavigation title="Chatrooms" alignment="center" />
+        <Layout style={themedStyle.container}>
+            <TopNavigation title="Chats" alignment="center" />
             <Divider />
-        </SafeAreaView>
+        </Layout>
     );
 };
 
 export const RoomsScreen = withStyles(RoomsComponent, (theme: ThemeType) => ({
     container: {
         flex: 1,
-        backgroundColor: theme['background-basic-color-1'],
+        backgroundColor: theme['background-basic-color-2'],
     },
 }));

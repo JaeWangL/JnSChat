@@ -2,5 +2,13 @@
   "dialog": {
     "ok": "OK",
     "cancel": "Cancel"
+  },
+  "loginScreen": {
+    "subtitle": "Log in to your account",
+    "email": "Email",
+    "password": "Password",
+    "forgotPassword": "Forgot your password?",
+    "login": "LOG IN",
+    "register": "Don't have an account? Create"
   }
 }
