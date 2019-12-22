@@ -8,6 +8,10 @@ import {
     ImageStyle,
 } from 'react-native';
 
+export const ArrowBackIconFill = (style: ImageStyle): IconElement<ImageProps> => (
+    <Icon {...style} name="arrow-back" />
+);
+
 export const EmailIconFill = (style: ImageStyle): IconElement<ImageProps> => (
     <Icon {...style} name="email" />
 );
@@ -20,8 +24,20 @@ export const MessageCircleIconOutline = (style: ImageStyle): IconElement<ImagePr
     <Icon {...style} name="message-circle-outline" />
 );
 
+export const MicIconFill = (style: ImageStyle): IconElement<ImageProps> => (
+    <Icon {...style} name="mic" />
+);
+
 export const PersonIconOutline = (style: ImageStyle): IconElement<ImageProps> => (
     <Icon {...style} name="person-outline" />
+);
+
+export const PlusCircleIconFill = (style: ImageStyle): IconElement<ImageProps> => (
+    <Icon {...style} name="plus-circle" />
+);
+
+export const PlusIconFill = (style: ImageStyle): IconElement<ImageProps> => (
+    <Icon {...style} name="plus" />
 );
 
 export const Settings2IconOutline = (style: ImageStyle): IconElement<ImageProps> => (

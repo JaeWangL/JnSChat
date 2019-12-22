@@ -2,8 +2,9 @@ import { BottomNavigation, BottomNavigationTab } from '@ui-kitten/components';
 import React from 'react';
 import { SafeAreaView } from 'react-navigation';
 import { createBottomTabNavigator, NavigationTabScreenProps } from 'react-navigation-tabs';
+import { createStackNavigator, NavigationStackScreenProps } from 'react-navigation-stack';
 import { MessageCircleIconOutline, PersonIconOutline, Settings2IconOutline } from '../components';
-import { RoomsScreen } from '../screens/rooms';
+import { ChatRoomScreen, RoomsScreen } from '../screens/rooms';
 
 const TabBarComponent = (props: NavigationTabScreenProps): React.ReactElement => {
     const { navigation } = props;
@@ -24,10 +25,29 @@ const TabBarComponent = (props: NavigationTabScreenProps): React.ReactElement =>
     );
 };
 
+export const ChatsNavigator = createStackNavigator({
+    Rooms: RoomsScreen,
+    ChatRoom: ChatRoomScreen,
+}, {
+    initialRouteName: 'Rooms',
+    headerMode: 'none',
+});
+ChatsNavigator.navigationOptions = (navProps: NavigationStackScreenProps): any => {
+    let tabBarVisible = true;
+    if (navProps.navigation.state.index > 0) {
+        tabBarVisible = false;
+    }
+
+    return {
+        tabBarVisible,
+    };
+};
+
 export const MainNavigator = createBottomTabNavigator({
     Friends: RoomsScreen,
-    Chats: RoomsScreen,
+    Chats: ChatsNavigator,
     Settings: RoomsScreen,
 }, {
+    initialRouteName: 'Friends',
     tabBarComponent: TabBarComponent,
 });

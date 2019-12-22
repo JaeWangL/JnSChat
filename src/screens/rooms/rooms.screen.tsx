@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Alert, ListRenderItemInfo } from 'react-native';
+import { ListRenderItemInfo } from 'react-native';
+import { NavigationStackScreenProps } from 'react-navigation-stack';
 import {
     withStyles,
     Divider,
@@ -10,18 +11,19 @@ import {
     TopNavigation,
 } from '@ui-kitten/components';
 import { GetRoomDto } from '../../dtos';
-import { Room, RoomProps } from './components/roomItem.component';
+import { Room, RoomProps } from './components/room.component';
 
 interface ComponentProps { }
 
-type RoomsProps = ThemedComponentProps & ComponentProps;
+type RoomsProps = NavigationStackScreenProps & ThemedComponentProps & ComponentProps;
 
 const RoomsComponent = (props: RoomsProps): React.ReactElement => {
-    const { themedStyle } = props;
+    const { navigation, themedStyle } = props;
     /* eslint-disable max-len */
     const [rooms, setRooms] = useState<GetRoomDto[]>([
         {
             interlocutor: {
+                id: 2,
                 name: 'First',
                 imageUrl: 'https://static01.nyt.com/images/2014/02/20/business/20CORNER/20CORNER-superJumbo-v2.jpg?quality=90&auto=webp',
             },
@@ -30,6 +32,7 @@ const RoomsComponent = (props: RoomsProps): React.ReactElement => {
         },
         {
             interlocutor: {
+                id: 3,
                 name: 'Second',
                 imageUrl: 'https://static01.nyt.com/images/2014/02/20/business/20CORNER/20CORNER-superJumbo-v2.jpg?quality=90&auto=webp',
             },
@@ -38,6 +41,7 @@ const RoomsComponent = (props: RoomsProps): React.ReactElement => {
         },
         {
             interlocutor: {
+                id: 4,
                 name: 'Third',
                 imageUrl: 'https://static01.nyt.com/images/2014/02/20/business/20CORNER/20CORNER-superJumbo-v2.jpg?quality=90&auto=webp',
             },
@@ -46,6 +50,7 @@ const RoomsComponent = (props: RoomsProps): React.ReactElement => {
         },
         {
             interlocutor: {
+                id: 5,
                 name: 'Fourth',
                 imageUrl: 'https://static01.nyt.com/images/2014/02/20/business/20CORNER/20CORNER-superJumbo-v2.jpg?quality=90&auto=webp',
             },
@@ -54,6 +59,7 @@ const RoomsComponent = (props: RoomsProps): React.ReactElement => {
         },
         {
             interlocutor: {
+                id: 6,
                 name: 'Fifth',
                 imageUrl: 'https://static01.nyt.com/images/2014/02/20/business/20CORNER/20CORNER-superJumbo-v2.jpg?quality=90&auto=webp',
             },
@@ -64,7 +70,9 @@ const RoomsComponent = (props: RoomsProps): React.ReactElement => {
     /* eslint-enable max-len */
 
     const onRoomPress = (room: GetRoomDto): void => {
-        Alert.alert('Info', room.lastMessage);
+        navigation.navigate('ChatRoom', {
+            interlocutor: room.interlocutor,
+        });
     };
 
     const renderItem = (info: ListRenderItemInfo<GetRoomDto>): React.ReactElement<RoomProps> => (
